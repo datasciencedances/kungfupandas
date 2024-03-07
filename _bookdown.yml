@@ -1,0 +1,11 @@
+book_filename: "Kungfupandas"
+language:
+  ui:
+    chapter_name: "Chương "
+    
+  label:
+    fig: "FIGURE "
+    tab: "TABLE"
+delete_merged_file: true
+rmd_subdir: ["posts"]
+output_dir: "docs"

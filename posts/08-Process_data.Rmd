@@ -1,0 +1,98 @@
+# Làm việc với 1 số kiểu dữ liệu 
+## Xử  lý dữ liệu dạng text 
+Chúng ta có thể lưu dữ liệu text trong Pandas dưới hai dạng dữ liệu : object hoặc string​
+
+```python
+s = pd.Series( ["A", "B", "C", "Aaba", "Baca", np.nan, "CABA", "dog", "cat"], dtype="string")​
+```
+
+Để thực hiện các thao tác cho dữ liệu dạng text ta hay dùng `s.str.<phương thức>`.
+
+**lower()**
+
+Chúng ta có thể chuyển text về các kí tự viết thường bằng phương thức `lower()`
+
+```python
+s.str.lower()
+```
+
+```{.python_output}
+0       a
+1       b
+2       c
+3    aaba
+4    baca
+5    <NA>
+6    caba
+7     dog
+8     cat
+```
+
+
+**upper()**
+
+Chúng ta có thể chuyển text về các kí tự viết hoa bằng phương thức `upper()`
+
+```python
+s.str.upper()
+```
+
+```{.python_output}
+0       A
+1       B
+2       C
+3    AABA
+4    BACA
+5    <NA>
+6    CABA
+7     DOG
+8     CAT
+```
+
+**split()**
+
+split giúp cắt chuỗi theo một pattern cho trước, mặc định pattern là khoảng trắng
+
+```python
+s2 = pd.Series(["a_b_c ", "c_d_e", np.nan, "f_g_h"], dtype="string")
+s2.str.split("_")​​
+```
+
+```{.python_output}
+0    [a, b, c]​
+1    [c, d, e]​
+2         <NA>​
+3    [f, g, h]​
+```
+
+Chúng ta có thể chỉ lấy phần tử thứ `i` sau khi split bằng hai cách
+
+Cách thứ nhất, dùng `get(i)`
+
+```python
+s2.str.split("_").str.get(1)​
+```
+
+```{.python_output}
+0       b​
+1       d​
+2    <NA>​
+3       g
+```
+
+Cách thứ hai, dùng `[i]`
+
+```python
+s2.str.split("_").str[1]
+```
+
+```{.python_output}
+0       b​
+1       d​
+2    <NA>​
+3       g
+```
+
+## Xử lý dữ liệu dạng timestamp 
+## Category trong pandas
+## Xử lý Missing data

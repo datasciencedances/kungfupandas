@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chương 6 Tính toán trên các phần tử trong Pandas | Kungfu Pandas</title>
+  <meta name="description" content="Chương 6 Tính toán trên các phần tử trong Pandas | Kungfu Pandas" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chương 6 Tính toán trên các phần tử trong Pandas | Kungfu Pandas" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Chương 6 Tính toán trên các phần tử trong Pandas | Kungfu Pandas" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chương 6 Tính toán trên các phần tử trong Pandas | Kungfu Pandas" />
+  
+  <meta name="twitter:description" content="Chương 6 Tính toán trên các phần tử trong Pandas | Kungfu Pandas" />
+  
+
+<meta name="author" content="Lê Huỳnh Đức" />
+
+
+<meta name="date" content="2024-03-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="selecting-và-filtering.html"/>
+<link rel="next" href="các-cách-phối-hợp-nhiều-bảng-với-nhau.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/toc.css" type="text/css" />
+<link rel="stylesheet" href="css/highlight.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Kungfu Pandas</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Lời nói đầu</a></li>
+<li class="chapter" data-level="1" data-path="giới-thiệu-pandas.html"><a href="giới-thiệu-pandas.html"><i class="fa fa-check"></i><b>1</b> Giới thiệu Pandas</a></li>
+<li class="chapter" data-level="2" data-path="cấu-trúc-và-kiểu-dữ-liệu.html"><a href="cấu-trúc-và-kiểu-dữ-liệu.html"><i class="fa fa-check"></i><b>2</b> Cấu trúc và kiểu dữ liệu</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="cấu-trúc-và-kiểu-dữ-liệu.html"><a href="cấu-trúc-và-kiểu-dữ-liệu.html#series"><i class="fa fa-check"></i><b>2.1</b> Series</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="cấu-trúc-và-kiểu-dữ-liệu.html"><a href="cấu-trúc-và-kiểu-dữ-liệu.html#các-cách-khởi-tạo"><i class="fa fa-check"></i><b>2.1.1</b> Các cách khởi tạo</a></li>
+<li class="chapter" data-level="2.1.2" data-path="cấu-trúc-và-kiểu-dữ-liệu.html"><a href="cấu-trúc-và-kiểu-dữ-liệu.html#một-số-thao-tác-cơ-bản"><i class="fa fa-check"></i><b>2.1.2</b> Một số thao tác cơ bản</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="cấu-trúc-và-kiểu-dữ-liệu.html"><a href="cấu-trúc-và-kiểu-dữ-liệu.html#cach-khoi-tao-data-frame"><i class="fa fa-check"></i><b>2.2</b> DataFrame</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="cấu-trúc-và-kiểu-dữ-liệu.html"><a href="cấu-trúc-và-kiểu-dữ-liệu.html#các-cách-khởi-tạo-1"><i class="fa fa-check"></i><b>2.2.1</b> Các cách khởi tạo</a></li>
+<li class="chapter" data-level="2.2.2" data-path="cấu-trúc-và-kiểu-dữ-liệu.html"><a href="cấu-trúc-và-kiểu-dữ-liệu.html#các-hàm-khởi-tạo-thay-thế"><i class="fa fa-check"></i><b>2.2.2</b> Các hàm khởi tạo thay thế</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="cấu-trúc-và-kiểu-dữ-liệu.html"><a href="cấu-trúc-và-kiểu-dữ-liệu.html#data-type-trong-pandas"><i class="fa fa-check"></i><b>2.3</b> Data type trong pandas</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html"><i class="fa fa-check"></i><b>3</b> Đọc và lưu file trong Pandas</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#csv-tsv"><i class="fa fa-check"></i><b>3.1</b> csv, tsv</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#đọc-file-csv-tsv"><i class="fa fa-check"></i><b>3.1.1</b> Đọc file csv, tsv</a></li>
+<li class="chapter" data-level="3.1.2" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#xuất-file-csv-tsv"><i class="fa fa-check"></i><b>3.1.2</b> Xuất file csv, tsv</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#excel"><i class="fa fa-check"></i><b>3.2</b> Excel</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#đọc-file-excel"><i class="fa fa-check"></i><b>3.2.1</b> Đọc file Excel</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#json"><i class="fa fa-check"></i><b>3.3</b> JSON</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#đọc-file-json"><i class="fa fa-check"></i><b>3.3.1</b> Đọc file JSON</a></li>
+<li class="chapter" data-level="3.3.2" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#xuất-file-json"><i class="fa fa-check"></i><b>3.3.2</b> Xuất file JSON</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#pickle"><i class="fa fa-check"></i><b>3.4</b> Pickle</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#đọc-file-pickle"><i class="fa fa-check"></i><b>3.4.1</b> Đọc file Pickle</a></li>
+<li class="chapter" data-level="3.4.2" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#xuất-file-pickle"><i class="fa fa-check"></i><b>3.4.2</b> Xuất file Pickle</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#cấu-hình-pandas"><i class="fa fa-check"></i><b>3.5</b> Cấu hình pandas</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="Chuong-3.html"><a href="Chuong-3.html"><i class="fa fa-check"></i><b>4</b> Một số hàm cơ bản</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="Chuong-3.html"><a href="Chuong-3.html#head-và-.tail"><i class="fa fa-check"></i><b>4.1</b> <code>.head()</code> và <code>.tail()</code></a></li>
+<li class="chapter" data-level="4.2" data-path="Chuong-3.html"><a href="Chuong-3.html#shape-và-.size"><i class="fa fa-check"></i><b>4.2</b> <code>.shape</code> và <code>.size</code></a></li>
+<li class="chapter" data-level="4.3" data-path="Chuong-3.html"><a href="Chuong-3.html#info"><i class="fa fa-check"></i><b>4.3</b> <code>.info()</code></a></li>
+<li class="chapter" data-level="4.4" data-path="Chuong-3.html"><a href="Chuong-3.html#describe"><i class="fa fa-check"></i><b>4.4</b> <code>.describe()</code></a></li>
+<li class="chapter" data-level="4.5" data-path="Chuong-3.html"><a href="Chuong-3.html#index"><i class="fa fa-check"></i><b>4.5</b> <code>.index</code></a></li>
+<li class="chapter" data-level="4.6" data-path="Chuong-3.html"><a href="Chuong-3.html#memory_usage"><i class="fa fa-check"></i><b>4.6</b> <code>.memory_usage()</code></a></li>
+<li class="chapter" data-level="4.7" data-path="Chuong-3.html"><a href="Chuong-3.html#lấy-series-trong-pandas"><i class="fa fa-check"></i><b>4.7</b> Lấy Series trong pandas</a></li>
+<li class="chapter" data-level="4.8" data-path="Chuong-3.html"><a href="Chuong-3.html#astype"><i class="fa fa-check"></i><b>4.8</b> <code>.astype()</code></a></li>
+<li class="chapter" data-level="4.9" data-path="Chuong-3.html"><a href="Chuong-3.html#drop_duplicates"><i class="fa fa-check"></i><b>4.9</b> <code>.drop_duplicates()</code></a></li>
+<li class="chapter" data-level="4.10" data-path="Chuong-3.html"><a href="Chuong-3.html#value_counts"><i class="fa fa-check"></i><b>4.10</b> <code>.value_counts()</code></a></li>
+<li class="chapter" data-level="4.11" data-path="Chuong-3.html"><a href="Chuong-3.html#unique-và-.nunique"><i class="fa fa-check"></i><b>4.11</b> <code>.unique()</code> và <code>.nunique()</code></a></li>
+<li class="chapter" data-level="4.12" data-path="Chuong-3.html"><a href="Chuong-3.html#drop"><i class="fa fa-check"></i><b>4.12</b> <code>.drop()</code></a></li>
+<li class="chapter" data-level="4.13" data-path="Chuong-3.html"><a href="Chuong-3.html#rename"><i class="fa fa-check"></i><b>4.13</b> <code>.rename()</code></a></li>
+<li class="chapter" data-level="4.14" data-path="Chuong-3.html"><a href="Chuong-3.html#set_index"><i class="fa fa-check"></i><b>4.14</b> <code>.set_index()</code></a></li>
+<li class="chapter" data-level="4.15" data-path="Chuong-3.html"><a href="Chuong-3.html#sort_index"><i class="fa fa-check"></i><b>4.15</b> <code>.sort_index</code></a></li>
+<li class="chapter" data-level="4.16" data-path="Chuong-3.html"><a href="Chuong-3.html#sort_values"><i class="fa fa-check"></i><b>4.16</b> <code>.sort_values</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="selecting-và-filtering.html"><a href="selecting-và-filtering.html"><i class="fa fa-check"></i><b>5</b> Selecting và Filtering</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="selecting-và-filtering.html"><a href="selecting-và-filtering.html#sử-dụng"><i class="fa fa-check"></i><b>5.1</b> Sử dụng <code>[]</code></a></li>
+<li class="chapter" data-level="5.2" data-path="selecting-và-filtering.html"><a href="selecting-và-filtering.html#loc-và-.iloc"><i class="fa fa-check"></i><b>5.2</b> .loc và .iloc</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="selecting-và-filtering.html"><a href="selecting-và-filtering.html#loc"><i class="fa fa-check"></i><b>5.2.1</b> .loc</a></li>
+<li class="chapter" data-level="5.2.2" data-path="selecting-và-filtering.html"><a href="selecting-và-filtering.html#iloc"><i class="fa fa-check"></i><b>5.2.2</b> <code>.iloc</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="selecting-và-filtering.html"><a href="selecting-và-filtering.html#lọc-theo-điều-kiện"><i class="fa fa-check"></i><b>5.3</b> Lọc theo điều kiện</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="selecting-và-filtering.html"><a href="selecting-và-filtering.html#toán-tử-điều-kiện"><i class="fa fa-check"></i><b>5.3.1</b> Toán tử điều kiện</a></li>
+<li class="chapter" data-level="5.3.2" data-path="selecting-và-filtering.html"><a href="selecting-và-filtering.html#isin"><i class="fa fa-check"></i><b>5.3.2</b> <code>.isin()</code></a></li>
+<li class="chapter" data-level="5.3.3" data-path="selecting-và-filtering.html"><a href="selecting-và-filtering.html#lọc-missing-value-với-.dropna"><i class="fa fa-check"></i><b>5.3.3</b> Lọc missing value với <code>.dropna()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="tính-toán-trên-các-phần-tử-trong-pandas.html"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html"><i class="fa fa-check"></i><b>6</b> Tính toán trên các phần tử trong Pandas</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="tính-toán-trên-các-phần-tử-trong-pandas.html"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#sử-dụng-vectorization"><i class="fa fa-check"></i><b>6.1</b> Sử dụng Vectorization</a></li>
+<li class="chapter" data-level="6.2" data-path="tính-toán-trên-các-phần-tử-trong-pandas.html"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#sử-dụng-apply"><i class="fa fa-check"></i><b>6.2</b> Sử dụng apply</a></li>
+<li class="chapter" data-level="6.3" data-path="tính-toán-trên-các-phần-tử-trong-pandas.html"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#sử-dụng-iterator"><i class="fa fa-check"></i><b>6.3</b> Sử dụng iterator</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="tính-toán-trên-các-phần-tử-trong-pandas.html"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#iterrows"><i class="fa fa-check"></i><b>6.3.1</b> Iterrows</a></li>
+<li class="chapter" data-level="6.3.2" data-path="tính-toán-trên-các-phần-tử-trong-pandas.html"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#itertuple"><i class="fa fa-check"></i><b>6.3.2</b> Itertuple</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="tính-toán-trên-các-phần-tử-trong-pandas.html"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#so-sánh-các-phương-pháp-lặp"><i class="fa fa-check"></i><b>6.4</b> So sánh các phương pháp lặp</a></li>
+<li class="chapter" data-level="6.5" data-path="tính-toán-trên-các-phần-tử-trong-pandas.html"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#xử-lý-song-song-trong-pandas"><i class="fa fa-check"></i><b>6.5</b> Xử lý song song trong pandas</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="tính-toán-trên-các-phần-tử-trong-pandas.html"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#pandarallel"><i class="fa fa-check"></i><b>6.5.1</b> pandarallel</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="các-cách-phối-hợp-nhiều-bảng-với-nhau.html"><a href="các-cách-phối-hợp-nhiều-bảng-với-nhau.html"><i class="fa fa-check"></i><b>7</b> Các cách phối hợp nhiều bảng với nhau</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="các-cách-phối-hợp-nhiều-bảng-với-nhau.html"><a href="các-cách-phối-hợp-nhiều-bảng-với-nhau.html#join"><i class="fa fa-check"></i><b>7.1</b> Join</a></li>
+<li class="chapter" data-level="7.2" data-path="các-cách-phối-hợp-nhiều-bảng-với-nhau.html"><a href="các-cách-phối-hợp-nhiều-bảng-với-nhau.html#merge"><i class="fa fa-check"></i><b>7.2</b> Merge</a></li>
+<li class="chapter" data-level="7.3" data-path="các-cách-phối-hợp-nhiều-bảng-với-nhau.html"><a href="các-cách-phối-hợp-nhiều-bảng-với-nhau.html#concat"><i class="fa fa-check"></i><b>7.3</b> Concat</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="groupby.html"><a href="groupby.html"><i class="fa fa-check"></i><b>8</b> Groupby</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="groupby.html"><a href="groupby.html#groupby-1"><i class="fa fa-check"></i><b>8.1</b> Groupby</a></li>
+<li class="chapter" data-level="8.2" data-path="groupby.html"><a href="groupby.html#các-hàm-filtering-trong-groupby"><i class="fa fa-check"></i><b>8.2</b> Các hàm Filtering trong Groupby</a></li>
+<li class="chapter" data-level="8.3" data-path="groupby.html"><a href="groupby.html#aggregate-trong-groupby"><i class="fa fa-check"></i><b>8.3</b> Aggregate trong Groupby</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="làm-việc-với-1-số-kiểu-dữ-liệu.html"><a href="làm-việc-với-1-số-kiểu-dữ-liệu.html"><i class="fa fa-check"></i><b>9</b> Làm việc với 1 số kiểu dữ liệu</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="làm-việc-với-1-số-kiểu-dữ-liệu.html"><a href="làm-việc-với-1-số-kiểu-dữ-liệu.html#xử-lý-dữ-liệu-dạng-text"><i class="fa fa-check"></i><b>9.1</b> Xử lý dữ liệu dạng text</a></li>
+<li class="chapter" data-level="9.2" data-path="làm-việc-với-1-số-kiểu-dữ-liệu.html"><a href="làm-việc-với-1-số-kiểu-dữ-liệu.html#xử-lý-dữ-liệu-dạng-timestamp"><i class="fa fa-check"></i><b>9.2</b> Xử lý dữ liệu dạng timestamp</a></li>
+<li class="chapter" data-level="9.3" data-path="làm-việc-với-1-số-kiểu-dữ-liệu.html"><a href="làm-việc-với-1-số-kiểu-dữ-liệu.html#category-trong-pandas"><i class="fa fa-check"></i><b>9.3</b> Category trong pandas</a></li>
+<li class="chapter" data-level="9.4" data-path="làm-việc-với-1-số-kiểu-dữ-liệu.html"><a href="làm-việc-với-1-số-kiểu-dữ-liệu.html#xử-lý-missing-data"><i class="fa fa-check"></i><b>9.4</b> Xử lý Missing data</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html"><i class="fa fa-check"></i><b>10</b> Một số kiến thức nâng cao</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#multiindex"><i class="fa fa-check"></i><b>10.1</b> MultiIndex</a></li>
+<li class="chapter" data-level="10.2" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#pivot-và-melt"><i class="fa fa-check"></i><b>10.2</b> Pivot và Melt</a></li>
+<li class="chapter" data-level="10.3" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#resample"><i class="fa fa-check"></i><b>10.3</b> Resample</a></li>
+<li class="chapter" data-level="10.4" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#window"><i class="fa fa-check"></i><b>10.4</b> Window</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="anomaly-detection-project.html"><a href="anomaly-detection-project.html"><i class="fa fa-check"></i><b>11</b> Anomaly Detection Project</a></li>
+<li class="chapter" data-level="12" data-path="visualize-với-matplotlib.html"><a href="visualize-với-matplotlib.html"><i class="fa fa-check"></i><b>12</b> Visualize với Matplotlib</a></li>
+<li class="chapter" data-level="13" data-path="cấu-hình-pandas-1.html"><a href="cấu-hình-pandas-1.html"><i class="fa fa-check"></i><b>13</b> Cấu hình pandas</a></li>
+<li class="divider"></li>
+<li><a href="" target="blank">Lê Huỳnh Đức</a></li>  
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Kungfu Pandas</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tính-toán-trên-các-phần-tử-trong-pandas" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chương 6</span> Tính toán trên các phần tử trong Pandas<a href="tính-toán-trên-các-phần-tử-trong-pandas.html#tính-toán-trên-các-phần-tử-trong-pandas" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb297"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb297-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb297-1" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/big_mart_sales.csv&#39;</span>)</span></code></pre></div>
+<div id="sử-dụng-vectorization" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Sử dụng Vectorization<a href="tính-toán-trên-các-phần-tử-trong-pandas.html#sử-dụng-vectorization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Giả sử như muốn tạo cột <code>price</code>= <code>Item_Outlet_Sales</code> * <code>5%</code></p>
+<div class="sourceCode" id="cb298"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb298-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb298-1" tabindex="-1"></a>df[<span class="st">&#39;price&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;Item_Outlet_Sales&#39;</span>] <span class="op">*</span> <span class="fl">0.05</span></span>
+<span id="cb298-2"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb298-2" tabindex="-1"></a>df[[<span class="st">&#39;Item_Outlet_Sales&#39;</span>, <span class="st">&#39;price&#39;</span>]]</span></code></pre></div>
+<pre class="python_output"><code>      Item_Outlet_Sales      price
+0             3735.1380  186.75690
+1              443.4228   22.17114
+2             2097.2700  104.86350
+3              732.3800   36.61900
+4              994.7052   49.73526
+...                 ...        ...
+8518          2778.3834  138.91917
+8519           549.2850   27.46425
+8520          1193.1136   59.65568
+8521          1845.5976   92.27988
+8522           765.6700   38.28350</code></pre>
+<p>Nối hai cột lại với nhau, Ví dụ</p>
+<ul>
+<li><p>nối <code>Item_type</code> và <code>Item_Fat_Content</code> thành <code>Item_Type_Fat_Content</code></p></li>
+<li><p>nối <code>Outlet_Identifier</code> và <code>Outlet_Establishment_Year</code> thành <code>Outlet_Identifier_Establishment_Year</code>. Trong trường hợp hợp này <code>Outlet_Establishment_Year</code> thuộc dạng số nên để nối dạng text và số ta ép kiểu dạng số về text sử dụng <code>astype()</code></p></li>
+</ul>
+<div class="sourceCode" id="cb300"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb300-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb300-1" tabindex="-1"></a>df[<span class="st">&#39;Item_Type_Fat_Content&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;Item_Type&#39;</span>] <span class="op">+</span> <span class="st">&#39;_&#39;</span> <span class="op">+</span> df[<span class="st">&#39;Item_Fat_Content&#39;</span>]</span>
+<span id="cb300-2"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb300-2" tabindex="-1"></a>df[<span class="st">&#39;Outlet_Identifier_Establishment_Year&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;Outlet_Identifier&#39;</span>] <span class="op">+</span> <span class="st">&#39;_&#39;</span> <span class="op">+</span>df[<span class="st">&#39;Outlet_Establishment_Year&#39;</span>].astype(<span class="st">&#39;str&#39;</span>)</span>
+<span id="cb300-3"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb300-3" tabindex="-1"></a>df[[<span class="st">&#39;Item_Type_Fat_Content&#39;</span>, <span class="st">&#39;Outlet_Identifier_Establishment_Year&#39;</span>]]</span></code></pre></div>
+<pre class="python_output"><code>              Item_Type_Fat_Content Outlet_Identifier_Establishment_Year
+0                     Dairy_Low Fat                          OUT049_1999
+1               Soft Drinks_Regular                          OUT018_2009
+2                      Meat_Low Fat                          OUT049_1999
+3     Fruits and Vegetables_Regular                          OUT010_1998
+4                 Household_Low Fat                          OUT013_1987
+...                             ...                                  ...
+8518            Snack Foods_Low Fat                          OUT013_1987
+8519           Baking Goods_Regular                          OUT045_2002
+8520     Health and Hygiene_Low Fat                          OUT035_2004
+8521            Snack Foods_Regular                          OUT018_2009
+8522            Soft Drinks_Low Fat                          OUT046_1997</code></pre>
+</div>
+<div id="sử-dụng-apply" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Sử dụng apply<a href="tính-toán-trên-các-phần-tử-trong-pandas.html#sử-dụng-apply" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Phương thức <code>apply</code> để thực thi một hàm theo dòng hoặc cột</p>
+<p><strong>Đối với Series</strong></p>
+<div class="sourceCode" id="cb302"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb302-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb302-1" tabindex="-1"></a>Series.<span class="bu">apply</span>(func, convert_dtype<span class="op">=</span><span class="va">True</span>, args<span class="op">=</span>(), <span class="op">**</span>kwargs)</span></code></pre></div>
+<p>Trong đó:</p>
+<ul>
+<li><p><code>func</code>: là hàm cần thực thi</p></li>
+<li><p><code>convert_dtype</code>: Giá trị kiểu boolean. Nếu nó được đặt thành True (mặc định), xử lý dữ liệu sẽ cố gắng tìm dtype tốt hơn cho các kết quả của hàm <code>func</code>. Nếu <code>False</code>, thì dtype sẽ là type(object)</p></li>
+<li><p><code>args</code>: Các đối số của hàm</p></li>
+</ul>
+<p>Ví dụ, thao tác <code>Item_Outlet_Sales</code> * <code>5%</code></p>
+<p>Sử dụng lambda function</p>
+<div class="sourceCode" id="cb303"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb303-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb303-1" tabindex="-1"></a>df[<span class="st">&#39;Item_Outlet_Sales&#39;</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x <span class="op">*</span> <span class="fl">0.05</span>)</span></code></pre></div>
+<pre class="python_output"><code>0       186.75690
+1        22.17114
+2       104.86350
+3        36.61900
+4        49.73526
+          ...    
+8518    138.91917
+8519     27.46425
+8520     59.65568
+8521     92.27988
+8522     38.28350
+Name: Item_Outlet_Sales, Length: 8523, dtype: float64</code></pre>
+<p>Sử dụng hàm tự định nghĩa</p>
+<div class="sourceCode" id="cb305"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb305-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb305-1" tabindex="-1"></a><span class="kw">def</span> set_price(x, k<span class="op">=</span><span class="fl">0.05</span>):</span>
+<span id="cb305-2"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb305-2" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">*</span> k</span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb306-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb306-1" tabindex="-1"></a>df[<span class="st">&#39;Item_Outlet_Sales&#39;</span>].<span class="bu">apply</span>(set_price)</span></code></pre></div>
+<pre class="python_output"><code>0       186.75690
+1        22.17114
+2       104.86350
+3        36.61900
+4        49.73526
+          ...    
+8518    138.91917
+8519     27.46425
+8520     59.65568
+8521     92.27988
+8522     38.28350
+Name: Item_Outlet_Sales, Length: 8523, dtype: float64</code></pre>
+<p>Có thể truyền tham số <code>k</code> vào hàm <code>set_price</code> bằng hai cách</p>
+<div class="sourceCode" id="cb308"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb308-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb308-1" tabindex="-1"></a><span class="co"># Cách 1 - Dùng lambda</span></span>
+<span id="cb308-2"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb308-2" tabindex="-1"></a>df[<span class="st">&#39;Item_Outlet_Sales&#39;</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: set_price(x, <span class="fl">0.1</span>))</span>
+<span id="cb308-3"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb308-3" tabindex="-1"></a></span>
+<span id="cb308-4"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb308-4" tabindex="-1"></a><span class="co"># Cách 2 - Dùng `arg`</span></span>
+<span id="cb308-5"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb308-5" tabindex="-1"></a>df[<span class="st">&#39;Item_Outlet_Sales&#39;</span>].<span class="bu">apply</span>(set_price, k<span class="op">=</span><span class="fl">0.1</span>)</span></code></pre></div>
+<p><strong>Đối với <code>DataFrame</code></strong></p>
+<p>Ta dùng cú pháp</p>
+<div class="sourceCode" id="cb309"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb309-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb309-1" tabindex="-1"></a>DataFrame.<span class="bu">apply</span>(func, axis<span class="op">=</span><span class="dv">0</span>, raw<span class="op">=</span><span class="va">False</span>, result_type<span class="op">=</span><span class="va">None</span>, args<span class="op">=</span>(), <span class="op">**</span>kwargs)</span></code></pre></div>
+<p>Trong đó:</p>
+<ul>
+<li><p><code>func</code>: là hàm cần thực thi</p></li>
+<li><p><code>axis</code>: thực thi theo dòng <code>0</code> hoặc cột <code>1</code></p></li>
+<li><p><code>raw</code>: Xác định xem dòng hoặc cột có thể chuyển về <code>Series</code> hoặc <code>ndarray</code></p></li>
+<li><p><code>result_type</code>: Chỉ áp dụng cho <code>axis=1</code></p></li>
+<li><p><code>args</code>: Các đối số của hàm</p></li>
+</ul>
+<p>Ví dụ:</p>
+<div class="sourceCode" id="cb310"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb310-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb310-1" tabindex="-1"></a>sample_df <span class="op">=</span> sample_df <span class="op">=</span> pd.DataFrame([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="st">&#39;A&#39;</span>], [<span class="dv">3</span>, <span class="dv">6</span>, <span class="st">&#39;B&#39;</span>], [<span class="dv">5</span>, <span class="dv">10</span>, <span class="st">&#39;C&#39;</span>]], columns<span class="op">=</span>[<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;C&#39;</span>])</span>
+<span id="cb310-2"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb310-2" tabindex="-1"></a>sample_df</span></code></pre></div>
+<pre class="python_output"><code>   A   B  C
+0  1   2  A
+1  3   6  B
+2  5  10  C</code></pre>
+<p>Áp dụng trên toàn <code>DataFrame</code></p>
+<div class="sourceCode" id="cb312"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb312-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb312-1" tabindex="-1"></a>sample_df.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x <span class="op">*</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre class="python_output"><code>     A   B   C
+0    2   4  AA
+1    6  12  BB
+2   10  20  CC</code></pre>
+
+<div class="rmdnote">
+<p><strong><em>Lưu ý:</em></strong></p>
+<p>Khi áp dụng cho toàn <code>DataFrame</code> hãy cẩn thận hàm <code>func</code> truyền vào, nếu <code>func</code> không áp dụng được cho toàn bộ các phần tử sẽ báo lỗi.</p>
+Ví dụ ở trên với x * 2 vẫn áp dụng được cho cột <code>C</code> dạng <code>str</code>, nhưng khi thay bằng x ** 2 sẽ báo lỗi vì toán tử <code>**</code> không áp dụng cho <code>str</code>
+</div>
+<p>Áp dụng trên một số cột trong <code>DataFrame</code></p>
+<div class="sourceCode" id="cb314"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb314-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb314-1" tabindex="-1"></a><span class="co">## Theo cột</span></span>
+<span id="cb314-2"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb314-2" tabindex="-1"></a>sample_df[[<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>]].<span class="bu">apply</span>(np.<span class="bu">sum</span>, axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre class="python_output"><code>0    13
+1    13
+2    13
+dtype: int64</code></pre>
+<div class="sourceCode" id="cb316"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb316-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb316-1" tabindex="-1"></a><span class="co">## Theo dòng</span></span>
+<span id="cb316-2"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb316-2" tabindex="-1"></a>df[[<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>]].<span class="bu">apply</span>(<span class="kw">lambda</span> x: np.<span class="bu">sum</span>(x), axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<pre class="python_output"><code>A    12
+B    27
+dtype: int64</code></pre>
+<p>Một cách khác áp dụng trên một số cột trong <code>DataFrame</code></p>
+<p>Sử dụng lambda</p>
+<div class="sourceCode" id="cb318"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb318-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb318-1" tabindex="-1"></a>sample_df.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[<span class="st">&#39;A&#39;</span>] <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> x[<span class="st">&#39;B&#39;</span>], axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre class="python_output"><code>0     5
+1    15
+2    25
+dtype: int64</code></pre>
+<p>Dùng hàm định nghĩa</p>
+<div class="sourceCode" id="cb320"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb320-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb320-1" tabindex="-1"></a><span class="kw">def</span> dsum(row):</span>
+<span id="cb320-2"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb320-2" tabindex="-1"></a>    <span class="cf">return</span> row[<span class="st">&#39;A&#39;</span>] <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> row[<span class="st">&#39;B&#39;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb321-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb321-1" tabindex="-1"></a>sample_df.<span class="bu">apply</span>(dsum, axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre class="python_output"><code>0     5
+1    15
+2    25
+dtype: int64</code></pre>
+
+<div class="rmdtip">
+<p><strong><em>Mẹo:</em></strong></p>
+<ul>
+<li><p>Không nhất thiết giá trị trả về của hàm là giá trị đơn, giá trị trả về có thể dưới dạng list, tuple hoặc dict</p></li>
+<li><p>Dùng <code>result_type</code> để thay đổi cách trả về</p>
+</div></li>
+</ul>
+<p>Ví dụ ta có 1 hàm trả về nhiều giá trị cùng lúc như sau</p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb323-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb323-1" tabindex="-1"></a><span class="kw">def</span> dsum_2(row):</span>
+<span id="cb323-2"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb323-2" tabindex="-1"></a>    <span class="cf">return</span> [row[<span class="st">&#39;A&#39;</span>] <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> row[<span class="st">&#39;B&#39;</span>],  row[<span class="st">&#39;A&#39;</span>] <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> row[<span class="st">&#39;B&#39;</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb324-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb324-1" tabindex="-1"></a><span class="co">## Khi không sử dụng `result_type`</span></span>
+<span id="cb324-2"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb324-2" tabindex="-1"></a>sample_df.<span class="bu">apply</span>(dsum_2, axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre class="python_output"><code>0      [5, -3]
+1     [15, -9]
+2    [25, -15]
+dtype: object</code></pre>
+<p>Kết quả trả về của phương pháp trên là <code>Series</code> với các giá trị của nó là dạng list. Để chuyển <code>Series</code> này thành <code>DataFrame</code> với các cột chứa các giá trị của list theo thứ tự, ta dùng <code>result_type='expand'</code></p>
+<div class="sourceCode" id="cb326"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb326-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb326-1" tabindex="-1"></a>sample_df.<span class="bu">apply</span>(dsum_2, axis<span class="op">=</span><span class="dv">1</span>, result_type<span class="op">=</span><span class="st">&#39;expand&#39;</span>)</span></code></pre></div>
+<pre class="python_output"><code>    0   1
+0   5  -3
+1  15  -9
+2  25 -15</code></pre>
+
+<div class="rmdtip">
+<strong><em>Mẹo:</em></strong> Có thể cấu trúc trả về dưới dạng <code>DataFrame</code> cho ví dụ trên mà không cần dùng <code>result_type</code> bằng cách sử dụng <code>pd.Series</code> của một <code>dictionary</code>. Lúc này các cột của <code>DataFrame</code> sẽ được đánh nhãn theo key của <code>dictionary</code>
+</div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb328-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb328-1" tabindex="-1"></a><span class="kw">def</span> dsum_3(row):</span>
+<span id="cb328-2"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb328-2" tabindex="-1"></a>    <span class="cf">return</span> pd.Series({<span class="st">&#39;X&#39;</span>: row[<span class="st">&#39;A&#39;</span>] <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> row[<span class="st">&#39;B&#39;</span>],  <span class="st">&#39;Y&#39;</span>:row[<span class="st">&#39;A&#39;</span>] <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> row[<span class="st">&#39;B&#39;</span>]})</span></code></pre></div>
+<div class="sourceCode" id="cb329"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb329-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb329-1" tabindex="-1"></a>sample_df.<span class="bu">apply</span>(dsum_3, axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre class="python_output"><code>    X   Y
+0   5   -3
+1   15  -9
+2   25  -15</code></pre>
+</div>
+<div id="sử-dụng-iterator" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Sử dụng iterator<a href="tính-toán-trên-các-phần-tử-trong-pandas.html#sử-dụng-iterator" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb331"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb331-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb331-1" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/big_mart_sales.csv&#39;</span>, usecols<span class="op">=</span>[<span class="st">&#39;Item_Identifier&#39;</span>, <span class="st">&#39;Item_Fat_Content&#39;</span>, <span class="st">&#39;Item_Type&#39;</span>, <span class="st">&#39;Outlet_Size&#39;</span>, <span class="st">&#39;Item_Outlet_Sales&#39;</span>, <span class="st">&#39;Outlet_Establishment_Year&#39;</span>])</span></code></pre></div>
+<div id="iterrows" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Iterrows<a href="tính-toán-trên-các-phần-tử-trong-pandas.html#iterrows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb332"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb332-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb332-1" tabindex="-1"></a>DataFrame.iterrows()</span></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb333-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb333-1" tabindex="-1"></a>row <span class="op">=</span> <span class="bu">next</span>(df.iterrows())</span>
+<span id="cb333-2"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb333-2" tabindex="-1"></a>row</span></code></pre></div>
+<pre class="python_output"><code>(0,
+ Item_Identifier                 FDA15
+ Item_Fat_Content              Low Fat
+ Item_Type                       Dairy
+ Outlet_Establishment_Year        1999
+ Outlet_Size                    Medium
+ Item_Outlet_Sales            3735.138
+ Name: 0, dtype: object)</code></pre>
+<p>Kết quả trả về cho row là 1 tuple gồm index và Series chứa các giá trị tại index đó.</p>
+<p><strong>Cách dùng vòng lặp trong iterrows</strong></p>
+<p>Để duyệt từng dòng ta dùng <code>for</code> như bình thường</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb335-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb335-1" tabindex="-1"></a>prices <span class="op">=</span> []</span>
+<span id="cb335-2"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb335-2" tabindex="-1"></a><span class="cf">for</span> i, row <span class="kw">in</span> df.iterrows():</span>
+<span id="cb335-3"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb335-3" tabindex="-1"></a>    prices.append(row[<span class="st">&#39;Item_Outlet_Sales&#39;</span>] <span class="op">*</span> <span class="fl">0.5</span>)</span>
+<span id="cb335-4"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb335-4" tabindex="-1"></a><span class="bu">print</span>(prices[:<span class="dv">5</span>])</span></code></pre></div>
+<pre class="python_output"><code>[1867.569, 221.7114, 1048.635, 366.19, 497.3526]</code></pre>
+</div>
+<div id="itertuple" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Itertuple<a href="tính-toán-trên-các-phần-tử-trong-pandas.html#itertuple" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb337"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb337-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb337-1" tabindex="-1"></a>DataFrame.itertuples(index<span class="op">=</span><span class="va">True</span>, name<span class="op">=</span><span class="st">&#39;Pandas&#39;</span>)</span></code></pre></div>
+<p>Trong đó:</p>
+<ul>
+<li><p><code>index</code>: <code>True</code> trả về kết quả kèm theo index và <code>False</code> lược bỏ index</p></li>
+<li><p><code>name</code>: Quy định kiểu trả về</p>
+<ul>
+<li><code>Pandas</code>: trả về namedtuple</li>
+<li><code>None</code>: trả về tuple</li>
+<li><code>namedtuple</code>: trả về namedtuple</li>
+</ul></li>
+</ul>
+<p>Trả về <code>namedtuple</code></p>
+<div class="sourceCode" id="cb338"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb338-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb338-1" tabindex="-1"></a><span class="bu">next</span>(df.itertuples(index<span class="op">=</span><span class="va">True</span>))</span></code></pre></div>
+<pre class="python_output"><code>Pandas(Index=0, Item_Identifier=&#39;FDA15&#39;, Item_Fat_Content=&#39;Low Fat&#39;, Item_Type=&#39;Dairy&#39;, Outlet_Establishment_Year=1999, Outlet_Size=&#39;Medium&#39;, Item_Outlet_Sales=3735.138)</code></pre>
+<p>Trả về <code>tuple</code></p>
+<div class="sourceCode" id="cb340"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb340-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb340-1" tabindex="-1"></a><span class="bu">next</span>(df.itertuples(index<span class="op">=</span><span class="va">False</span>, name<span class="op">=</span><span class="va">None</span>))</span></code></pre></div>
+<pre class="python_output"><code>(&#39;FDA15&#39;, &#39;Low Fat&#39;, &#39;Dairy&#39;, 1999, &#39;Medium&#39;, 3735.138)</code></pre>
+<p><strong>Cách dùng vòng lặp trong itertuples</strong></p>
+<p><code>name=default</code></p>
+<div class="sourceCode" id="cb342"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb342-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb342-1" tabindex="-1"></a>prices <span class="op">=</span> []</span>
+<span id="cb342-2"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb342-2" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> df.itertuples():</span>
+<span id="cb342-3"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb342-3" tabindex="-1"></a>    prices.append(row.Item_Outlet_Sales <span class="op">*</span> <span class="fl">0.5</span>)</span>
+<span id="cb342-4"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb342-4" tabindex="-1"></a><span class="bu">print</span>(prices[:<span class="dv">5</span>])</span></code></pre></div>
+<p><code>name=None</code></p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb343-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb343-1" tabindex="-1"></a>prices <span class="op">=</span> []</span>
+<span id="cb343-2"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb343-2" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> df.itertuples(index<span class="op">=</span><span class="va">False</span>, name<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb343-3"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb343-3" tabindex="-1"></a>    prices.append(row[<span class="dv">5</span>] <span class="op">*</span> <span class="fl">0.5</span>)</span>
+<span id="cb343-4"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb343-4" tabindex="-1"></a><span class="bu">print</span>(prices[:<span class="dv">5</span>])</span></code></pre></div>
+</div>
+</div>
+<div id="so-sánh-các-phương-pháp-lặp" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> So sánh các phương pháp lặp<a href="tính-toán-trên-các-phần-tử-trong-pandas.html#so-sánh-các-phương-pháp-lặp" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb344"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb344-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-1" tabindex="-1"></a></span>
+<span id="cb344-2"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-2" tabindex="-1"></a><span class="kw">def</span> vectorizer(df):</span>
+<span id="cb344-3"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-3" tabindex="-1"></a>    prices <span class="op">=</span> df[<span class="st">&#39;Item_Outlet_Sales&#39;</span>] <span class="op">*</span> <span class="fl">0.5</span></span>
+<span id="cb344-4"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-4" tabindex="-1"></a></span>
+<span id="cb344-5"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-5" tabindex="-1"></a><span class="kw">def</span> applyer(df):</span>
+<span id="cb344-6"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-6" tabindex="-1"></a>    prices <span class="op">=</span> df[<span class="st">&#39;Item_Outlet_Sales&#39;</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x <span class="op">*</span> <span class="fl">0.5</span>)</span>
+<span id="cb344-7"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-7" tabindex="-1"></a></span>
+<span id="cb344-8"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-8" tabindex="-1"></a><span class="kw">def</span> iterrows(df):</span>
+<span id="cb344-9"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-9" tabindex="-1"></a>    prices <span class="op">=</span> []</span>
+<span id="cb344-10"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-10" tabindex="-1"></a>    <span class="cf">for</span> i, row <span class="kw">in</span> df.iterrows():</span>
+<span id="cb344-11"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-11" tabindex="-1"></a>        prices.append(row[<span class="st">&#39;Item_Outlet_Sales&#39;</span>] <span class="op">*</span> <span class="fl">0.5</span>)</span>
+<span id="cb344-12"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-12" tabindex="-1"></a></span>
+<span id="cb344-13"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-13" tabindex="-1"></a><span class="kw">def</span> itertuples1(df):</span>
+<span id="cb344-14"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-14" tabindex="-1"></a>    prices <span class="op">=</span> []</span>
+<span id="cb344-15"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-15" tabindex="-1"></a>    <span class="cf">for</span> row <span class="kw">in</span> df.itertuples():</span>
+<span id="cb344-16"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-16" tabindex="-1"></a>        prices.append(row.Item_Outlet_Sales <span class="op">*</span> <span class="fl">0.5</span>)</span>
+<span id="cb344-17"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-17" tabindex="-1"></a></span>
+<span id="cb344-18"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-18" tabindex="-1"></a><span class="kw">def</span> itertuples2(df):</span>
+<span id="cb344-19"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-19" tabindex="-1"></a>    prices <span class="op">=</span> []</span>
+<span id="cb344-20"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-20" tabindex="-1"></a>    <span class="cf">for</span> row <span class="kw">in</span> df.itertuples(index<span class="op">=</span><span class="va">False</span>, name<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb344-21"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb344-21" tabindex="-1"></a>        prices.append(row[<span class="dv">5</span>] <span class="op">*</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb345-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb345-1" tabindex="-1"></a><span class="op">%</span>timeit <span class="op">-</span>n <span class="dv">10</span> vectorizer(df)</span></code></pre></div>
+<pre class="python_output"><code>80.1 µs ± 42.8 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)</code></pre>
+<div class="sourceCode" id="cb347"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb347-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb347-1" tabindex="-1"></a><span class="op">%</span>timeit <span class="op">-</span>n <span class="dv">10</span> applyer(df)</span></code></pre></div>
+<pre class="python_output"><code>1.37 ms ± 112 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)</code></pre>
+<div class="sourceCode" id="cb349"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb349-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb349-1" tabindex="-1"></a><span class="op">%</span>timeit <span class="op">-</span>n <span class="dv">10</span> iterrows(df)</span></code></pre></div>
+<pre class="python_output"><code>256 ms ± 2.48 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)</code></pre>
+<div class="sourceCode" id="cb351"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb351-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb351-1" tabindex="-1"></a><span class="op">%</span>timeit <span class="op">-</span>n <span class="dv">10</span> itertuples1(df)</span></code></pre></div>
+<pre class="python_output"><code>6.61 ms ± 200 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)</code></pre>
+<div class="sourceCode" id="cb353"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb353-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb353-1" tabindex="-1"></a><span class="op">%</span>timeit <span class="op">-</span>n <span class="dv">10</span> itertuples2(df)</span></code></pre></div>
+<pre class="python_output"><code>3.91 ms ± 132 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)</code></pre>
+</div>
+<div id="xử-lý-song-song-trong-pandas" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Xử lý song song trong pandas<a href="tính-toán-trên-các-phần-tử-trong-pandas.html#xử-lý-song-song-trong-pandas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Xử lý song song là phương pháp tận dụng số lượng core của CPU để giải quyết vấn đề trong thời gian ngắn hơn.</p>
+<div id="pandarallel" class="section level3 hasAnchor" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> pandarallel<a href="tính-toán-trên-các-phần-tử-trong-pandas.html#pandarallel" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Để cài đặt pandarallel bằng <code>pip</code></p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb355-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb355-1" tabindex="-1"></a>pip install pandarallel</span></code></pre></div>
+<p>Cách sử dụng</p>
+<div class="sourceCode" id="cb356"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb356-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb356-1" tabindex="-1"></a><span class="im">from</span> pandarallel <span class="im">import</span> pandarallel</span>
+<span id="cb356-2"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb356-2" tabindex="-1"></a>pandarallel.initialize(progress_bar<span class="op">=</span><span class="va">True</span>, n_workers<span class="op">=</span><span class="dv">4</span>)</span></code></pre></div>
+<p>Để thiết lập cho pandarallel ta dùng <code>.initialize</code>. Trong đó:</p>
+<ul>
+<li><p><code>n_workers</code>: là số lượng cores của CPU</p></li>
+<li><p><code>progress_bar</code>: show tiến trình</p></li>
+</ul>
+<p>Để áp dụng pandarallel ta chỉ việc thay thế <code>.apply</code> bằng <code>.parallel_apply</code></p>
+<div class="sourceCode" id="cb357"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb357-1"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb357-1" tabindex="-1"></a><span class="co"># df.apply(func)</span></span>
+<span id="cb357-2"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#cb357-2" tabindex="-1"></a>df.parallel_apply(func)</span></code></pre></div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="selecting-và-filtering.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="các-cách-phối-hợp-nhiều-bảng-với-nhau.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Kungfupandas.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"toc_depth": 3,
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>
