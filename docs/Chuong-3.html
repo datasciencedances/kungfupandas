@@ -23,7 +23,7 @@
 <meta name="author" content="Lê Huỳnh Đức" />
 
 
-<meta name="date" content="2024-03-07" />
+<meta name="date" content="2024-03-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="đọc-và-lưu-file-trong-pandas.html"/>
-<link rel="next" href="selecting-và-filtering.html"/>
+<link rel="next" href="chọn-và-lọc-dữ-liệu-trong-datafame.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -149,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="cấu-trúc-và-kiểu-dữ-liệu.html"><a href="cấu-trúc-và-kiểu-dữ-liệu.html#series"><i class="fa fa-check"></i><b>2.1</b> Series</a>
 <ul>
 <li class="chapter" data-level="2.1.1" data-path="cấu-trúc-và-kiểu-dữ-liệu.html"><a href="cấu-trúc-và-kiểu-dữ-liệu.html#các-cách-khởi-tạo"><i class="fa fa-check"></i><b>2.1.1</b> Các cách khởi tạo</a></li>
-<li class="chapter" data-level="2.1.2" data-path="cấu-trúc-và-kiểu-dữ-liệu.html"><a href="cấu-trúc-và-kiểu-dữ-liệu.html#một-số-thao-tác-cơ-bản"><i class="fa fa-check"></i><b>2.1.2</b> Một số thao tác cơ bản</a></li>
+<li class="chapter" data-level="2.1.2" data-path="cấu-trúc-và-kiểu-dữ-liệu.html"><a href="cấu-trúc-và-kiểu-dữ-liệu.html#một-số-thao-tác-cơ-bản-với-series"><i class="fa fa-check"></i><b>2.1.2</b> Một số thao tác cơ bản với Series</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="cấu-trúc-và-kiểu-dữ-liệu.html"><a href="cấu-trúc-và-kiểu-dữ-liệu.html#cach-khoi-tao-data-frame"><i class="fa fa-check"></i><b>2.2</b> DataFrame</a>
 <ul>
@@ -168,18 +168,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#excel"><i class="fa fa-check"></i><b>3.2</b> Excel</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#đọc-file-excel"><i class="fa fa-check"></i><b>3.2.1</b> Đọc file Excel</a></li>
+<li class="chapter" data-level="3.2.2" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#xuất-file-excel"><i class="fa fa-check"></i><b>3.2.2</b> Xuất file Excel</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#json"><i class="fa fa-check"></i><b>3.3</b> JSON</a>
 <ul>
 <li class="chapter" data-level="3.3.1" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#đọc-file-json"><i class="fa fa-check"></i><b>3.3.1</b> Đọc file JSON</a></li>
 <li class="chapter" data-level="3.3.2" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#xuất-file-json"><i class="fa fa-check"></i><b>3.3.2</b> Xuất file JSON</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#pickle"><i class="fa fa-check"></i><b>3.4</b> Pickle</a>
+<li class="chapter" data-level="3.4" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#parquet"><i class="fa fa-check"></i><b>3.4</b> Parquet</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#đọc-file-pickle"><i class="fa fa-check"></i><b>3.4.1</b> Đọc file Pickle</a></li>
-<li class="chapter" data-level="3.4.2" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#xuất-file-pickle"><i class="fa fa-check"></i><b>3.4.2</b> Xuất file Pickle</a></li>
+<li class="chapter" data-level="3.4.1" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#đọc-file-parquet"><i class="fa fa-check"></i><b>3.4.1</b> Đọc file Parquet</a></li>
+<li class="chapter" data-level="3.4.2" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#xuất-file-parquet"><i class="fa fa-check"></i><b>3.4.2</b> Xuất file Parquet</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#cấu-hình-pandas"><i class="fa fa-check"></i><b>3.5</b> Cấu hình pandas</a></li>
+<li class="chapter" data-level="3.5" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#pickle"><i class="fa fa-check"></i><b>3.5</b> Pickle</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#đọc-file-pickle"><i class="fa fa-check"></i><b>3.5.1</b> Đọc file Pickle</a></li>
+<li class="chapter" data-level="3.5.2" data-path="đọc-và-lưu-file-trong-pandas.html"><a href="đọc-và-lưu-file-trong-pandas.html#xuất-file-pickle"><i class="fa fa-check"></i><b>3.5.2</b> Xuất file Pickle</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="Chuong-3.html"><a href="Chuong-3.html"><i class="fa fa-check"></i><b>4</b> Một số hàm cơ bản</a>
 <ul>
@@ -189,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="Chuong-3.html"><a href="Chuong-3.html#describe"><i class="fa fa-check"></i><b>4.4</b> <code>.describe()</code></a></li>
 <li class="chapter" data-level="4.5" data-path="Chuong-3.html"><a href="Chuong-3.html#index"><i class="fa fa-check"></i><b>4.5</b> <code>.index</code></a></li>
 <li class="chapter" data-level="4.6" data-path="Chuong-3.html"><a href="Chuong-3.html#memory_usage"><i class="fa fa-check"></i><b>4.6</b> <code>.memory_usage()</code></a></li>
-<li class="chapter" data-level="4.7" data-path="Chuong-3.html"><a href="Chuong-3.html#lấy-series-trong-pandas"><i class="fa fa-check"></i><b>4.7</b> Lấy Series trong pandas</a></li>
+<li class="chapter" data-level="4.7" data-path="Chuong-3.html"><a href="Chuong-3.html#truy-cập-series-trong-pandas"><i class="fa fa-check"></i><b>4.7</b> Truy cập Series trong pandas</a></li>
 <li class="chapter" data-level="4.8" data-path="Chuong-3.html"><a href="Chuong-3.html#astype"><i class="fa fa-check"></i><b>4.8</b> <code>.astype()</code></a></li>
 <li class="chapter" data-level="4.9" data-path="Chuong-3.html"><a href="Chuong-3.html#drop_duplicates"><i class="fa fa-check"></i><b>4.9</b> <code>.drop_duplicates()</code></a></li>
 <li class="chapter" data-level="4.10" data-path="Chuong-3.html"><a href="Chuong-3.html#value_counts"><i class="fa fa-check"></i><b>4.10</b> <code>.value_counts()</code></a></li>
@@ -197,28 +202,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.12" data-path="Chuong-3.html"><a href="Chuong-3.html#drop"><i class="fa fa-check"></i><b>4.12</b> <code>.drop()</code></a></li>
 <li class="chapter" data-level="4.13" data-path="Chuong-3.html"><a href="Chuong-3.html#rename"><i class="fa fa-check"></i><b>4.13</b> <code>.rename()</code></a></li>
 <li class="chapter" data-level="4.14" data-path="Chuong-3.html"><a href="Chuong-3.html#set_index"><i class="fa fa-check"></i><b>4.14</b> <code>.set_index()</code></a></li>
-<li class="chapter" data-level="4.15" data-path="Chuong-3.html"><a href="Chuong-3.html#sort_index"><i class="fa fa-check"></i><b>4.15</b> <code>.sort_index</code></a></li>
-<li class="chapter" data-level="4.16" data-path="Chuong-3.html"><a href="Chuong-3.html#sort_values"><i class="fa fa-check"></i><b>4.16</b> <code>.sort_values</code></a></li>
+<li class="chapter" data-level="4.15" data-path="Chuong-3.html"><a href="Chuong-3.html#sort_values"><i class="fa fa-check"></i><b>4.15</b> <code>.sort_values</code></a></li>
+<li class="chapter" data-level="4.16" data-path="Chuong-3.html"><a href="Chuong-3.html#sort_index"><i class="fa fa-check"></i><b>4.16</b> <code>.sort_index</code></a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="selecting-và-filtering.html"><a href="selecting-và-filtering.html"><i class="fa fa-check"></i><b>5</b> Selecting và Filtering</a>
+<li class="chapter" data-level="5" data-path="chọn-và-lọc-dữ-liệu-trong-datafame.html"><a href="chọn-và-lọc-dữ-liệu-trong-datafame.html"><i class="fa fa-check"></i><b>5</b> Chọn và lọc dữ liệu trong DataFame</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="selecting-và-filtering.html"><a href="selecting-và-filtering.html#sử-dụng"><i class="fa fa-check"></i><b>5.1</b> Sử dụng <code>[]</code></a></li>
-<li class="chapter" data-level="5.2" data-path="selecting-và-filtering.html"><a href="selecting-và-filtering.html#loc-và-.iloc"><i class="fa fa-check"></i><b>5.2</b> .loc và .iloc</a>
+<li class="chapter" data-level="5.1" data-path="chọn-và-lọc-dữ-liệu-trong-datafame.html"><a href="chọn-và-lọc-dữ-liệu-trong-datafame.html#sử-dụng"><i class="fa fa-check"></i><b>5.1</b> Sử dụng <code>[]</code></a></li>
+<li class="chapter" data-level="5.2" data-path="chọn-và-lọc-dữ-liệu-trong-datafame.html"><a href="chọn-và-lọc-dữ-liệu-trong-datafame.html#sử-dụng-.loc"><i class="fa fa-check"></i><b>5.2</b> Sử dụng .loc</a></li>
+<li class="chapter" data-level="5.3" data-path="chọn-và-lọc-dữ-liệu-trong-datafame.html"><a href="chọn-và-lọc-dữ-liệu-trong-datafame.html#sử-dụng-.iloc"><i class="fa fa-check"></i><b>5.3</b> Sử dụng .iloc</a></li>
+<li class="chapter" data-level="5.4" data-path="chọn-và-lọc-dữ-liệu-trong-datafame.html"><a href="chọn-và-lọc-dữ-liệu-trong-datafame.html#lọc-theo-điều-kiện"><i class="fa fa-check"></i><b>5.4</b> Lọc theo điều kiện</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="selecting-và-filtering.html"><a href="selecting-và-filtering.html#loc"><i class="fa fa-check"></i><b>5.2.1</b> .loc</a></li>
-<li class="chapter" data-level="5.2.2" data-path="selecting-và-filtering.html"><a href="selecting-và-filtering.html#iloc"><i class="fa fa-check"></i><b>5.2.2</b> <code>.iloc</code></a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="selecting-và-filtering.html"><a href="selecting-và-filtering.html#lọc-theo-điều-kiện"><i class="fa fa-check"></i><b>5.3</b> Lọc theo điều kiện</a>
-<ul>
-<li class="chapter" data-level="5.3.1" data-path="selecting-và-filtering.html"><a href="selecting-và-filtering.html#toán-tử-điều-kiện"><i class="fa fa-check"></i><b>5.3.1</b> Toán tử điều kiện</a></li>
-<li class="chapter" data-level="5.3.2" data-path="selecting-và-filtering.html"><a href="selecting-và-filtering.html#isin"><i class="fa fa-check"></i><b>5.3.2</b> <code>.isin()</code></a></li>
-<li class="chapter" data-level="5.3.3" data-path="selecting-và-filtering.html"><a href="selecting-và-filtering.html#lọc-missing-value-với-.dropna"><i class="fa fa-check"></i><b>5.3.3</b> Lọc missing value với <code>.dropna()</code></a></li>
+<li class="chapter" data-level="5.4.1" data-path="chọn-và-lọc-dữ-liệu-trong-datafame.html"><a href="chọn-và-lọc-dữ-liệu-trong-datafame.html#toán-tử-điều-kiện"><i class="fa fa-check"></i><b>5.4.1</b> Toán tử điều kiện</a></li>
+<li class="chapter" data-level="5.4.2" data-path="chọn-và-lọc-dữ-liệu-trong-datafame.html"><a href="chọn-và-lọc-dữ-liệu-trong-datafame.html#isin"><i class="fa fa-check"></i><b>5.4.2</b> <code>.isin()</code></a></li>
+<li class="chapter" data-level="5.4.3" data-path="chọn-và-lọc-dữ-liệu-trong-datafame.html"><a href="chọn-và-lọc-dữ-liệu-trong-datafame.html#lọc-missing-value-với-.dropna"><i class="fa fa-check"></i><b>5.4.3</b> Lọc missing value với <code>.dropna()</code></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="tính-toán-trên-các-phần-tử-trong-pandas.html"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html"><i class="fa fa-check"></i><b>6</b> Tính toán trên các phần tử trong Pandas</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="tính-toán-trên-các-phần-tử-trong-pandas.html"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#sử-dụng-vectorization"><i class="fa fa-check"></i><b>6.1</b> Sử dụng Vectorization</a></li>
-<li class="chapter" data-level="6.2" data-path="tính-toán-trên-các-phần-tử-trong-pandas.html"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#sử-dụng-apply"><i class="fa fa-check"></i><b>6.2</b> Sử dụng apply</a></li>
+<li class="chapter" data-level="6.2" data-path="tính-toán-trên-các-phần-tử-trong-pandas.html"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#sử-dụng-apply"><i class="fa fa-check"></i><b>6.2</b> Sử dụng apply</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="tính-toán-trên-các-phần-tử-trong-pandas.html"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#sử-dụng-apply-lên-series"><i class="fa fa-check"></i><b>6.2.1</b> Sử dụng apply lên Series</a></li>
+<li class="chapter" data-level="6.2.2" data-path="tính-toán-trên-các-phần-tử-trong-pandas.html"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#sử-dụng-apply-lên-dataframe"><i class="fa fa-check"></i><b>6.2.2</b> Sử dụng apply lên <code>DataFrame</code></a></li>
+</ul></li>
 <li class="chapter" data-level="6.3" data-path="tính-toán-trên-các-phần-tử-trong-pandas.html"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#sử-dụng-iterator"><i class="fa fa-check"></i><b>6.3</b> Sử dụng iterator</a>
 <ul>
 <li class="chapter" data-level="6.3.1" data-path="tính-toán-trên-các-phần-tử-trong-pandas.html"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#iterrows"><i class="fa fa-check"></i><b>6.3.1</b> Iterrows</a></li>
@@ -230,35 +236,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5.1" data-path="tính-toán-trên-các-phần-tử-trong-pandas.html"><a href="tính-toán-trên-các-phần-tử-trong-pandas.html#pandarallel"><i class="fa fa-check"></i><b>6.5.1</b> pandarallel</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="các-cách-phối-hợp-nhiều-bảng-với-nhau.html"><a href="các-cách-phối-hợp-nhiều-bảng-với-nhau.html"><i class="fa fa-check"></i><b>7</b> Các cách phối hợp nhiều bảng với nhau</a>
+<li class="chapter" data-level="7" data-path="các-cách-phối-hợp-nhiều-bảng.html"><a href="các-cách-phối-hợp-nhiều-bảng.html"><i class="fa fa-check"></i><b>7</b> Các cách phối hợp nhiều bảng</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="các-cách-phối-hợp-nhiều-bảng-với-nhau.html"><a href="các-cách-phối-hợp-nhiều-bảng-với-nhau.html#join"><i class="fa fa-check"></i><b>7.1</b> Join</a></li>
-<li class="chapter" data-level="7.2" data-path="các-cách-phối-hợp-nhiều-bảng-với-nhau.html"><a href="các-cách-phối-hợp-nhiều-bảng-với-nhau.html#merge"><i class="fa fa-check"></i><b>7.2</b> Merge</a></li>
-<li class="chapter" data-level="7.3" data-path="các-cách-phối-hợp-nhiều-bảng-với-nhau.html"><a href="các-cách-phối-hợp-nhiều-bảng-với-nhau.html#concat"><i class="fa fa-check"></i><b>7.3</b> Concat</a></li>
+<li class="chapter" data-level="7.1" data-path="các-cách-phối-hợp-nhiều-bảng.html"><a href="các-cách-phối-hợp-nhiều-bảng.html#join"><i class="fa fa-check"></i><b>7.1</b> Join</a></li>
+<li class="chapter" data-level="7.2" data-path="các-cách-phối-hợp-nhiều-bảng.html"><a href="các-cách-phối-hợp-nhiều-bảng.html#merge"><i class="fa fa-check"></i><b>7.2</b> Merge</a></li>
+<li class="chapter" data-level="7.3" data-path="các-cách-phối-hợp-nhiều-bảng.html"><a href="các-cách-phối-hợp-nhiều-bảng.html#concat"><i class="fa fa-check"></i><b>7.3</b> Concat</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="groupby.html"><a href="groupby.html"><i class="fa fa-check"></i><b>8</b> Groupby</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="groupby.html"><a href="groupby.html#groupby-1"><i class="fa fa-check"></i><b>8.1</b> Groupby</a></li>
 <li class="chapter" data-level="8.2" data-path="groupby.html"><a href="groupby.html#các-hàm-filtering-trong-groupby"><i class="fa fa-check"></i><b>8.2</b> Các hàm Filtering trong Groupby</a></li>
-<li class="chapter" data-level="8.3" data-path="groupby.html"><a href="groupby.html#aggregate-trong-groupby"><i class="fa fa-check"></i><b>8.3</b> Aggregate trong Groupby</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="làm-việc-với-1-số-kiểu-dữ-liệu.html"><a href="làm-việc-với-1-số-kiểu-dữ-liệu.html"><i class="fa fa-check"></i><b>9</b> Làm việc với 1 số kiểu dữ liệu</a>
+<li class="chapter" data-level="9" data-path="xử-lý-một-số-kiểu-dữ-liệu-trong-pandas.html"><a href="xử-lý-một-số-kiểu-dữ-liệu-trong-pandas.html"><i class="fa fa-check"></i><b>9</b> Xử lý một số kiểu dữ liệu trong Pandas</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="làm-việc-với-1-số-kiểu-dữ-liệu.html"><a href="làm-việc-với-1-số-kiểu-dữ-liệu.html#xử-lý-dữ-liệu-dạng-text"><i class="fa fa-check"></i><b>9.1</b> Xử lý dữ liệu dạng text</a></li>
-<li class="chapter" data-level="9.2" data-path="làm-việc-với-1-số-kiểu-dữ-liệu.html"><a href="làm-việc-với-1-số-kiểu-dữ-liệu.html#xử-lý-dữ-liệu-dạng-timestamp"><i class="fa fa-check"></i><b>9.2</b> Xử lý dữ liệu dạng timestamp</a></li>
-<li class="chapter" data-level="9.3" data-path="làm-việc-với-1-số-kiểu-dữ-liệu.html"><a href="làm-việc-với-1-số-kiểu-dữ-liệu.html#category-trong-pandas"><i class="fa fa-check"></i><b>9.3</b> Category trong pandas</a></li>
-<li class="chapter" data-level="9.4" data-path="làm-việc-với-1-số-kiểu-dữ-liệu.html"><a href="làm-việc-với-1-số-kiểu-dữ-liệu.html#xử-lý-missing-data"><i class="fa fa-check"></i><b>9.4</b> Xử lý Missing data</a></li>
+<li class="chapter" data-level="9.1" data-path="xử-lý-một-số-kiểu-dữ-liệu-trong-pandas.html"><a href="xử-lý-một-số-kiểu-dữ-liệu-trong-pandas.html#xử-lý-dữ-liệu-dạng-text"><i class="fa fa-check"></i><b>9.1</b> Xử lý dữ liệu dạng text</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="xử-lý-một-số-kiểu-dữ-liệu-trong-pandas.html"><a href="xử-lý-một-số-kiểu-dữ-liệu-trong-pandas.html#lower"><i class="fa fa-check"></i><b>9.1.1</b> lower()</a></li>
+<li class="chapter" data-level="9.1.2" data-path="xử-lý-một-số-kiểu-dữ-liệu-trong-pandas.html"><a href="xử-lý-một-số-kiểu-dữ-liệu-trong-pandas.html#upper"><i class="fa fa-check"></i><b>9.1.2</b> upper()</a></li>
+<li class="chapter" data-level="9.1.3" data-path="xử-lý-một-số-kiểu-dữ-liệu-trong-pandas.html"><a href="xử-lý-một-số-kiểu-dữ-liệu-trong-pandas.html#split"><i class="fa fa-check"></i><b>9.1.3</b> split()</a></li>
+<li class="chapter" data-level="9.1.4" data-path="xử-lý-một-số-kiểu-dữ-liệu-trong-pandas.html"><a href="xử-lý-một-số-kiểu-dữ-liệu-trong-pandas.html#replace"><i class="fa fa-check"></i><b>9.1.4</b> replace</a></li>
+<li class="chapter" data-level="9.1.5" data-path="xử-lý-một-số-kiểu-dữ-liệu-trong-pandas.html"><a href="xử-lý-một-số-kiểu-dữ-liệu-trong-pandas.html#remove"><i class="fa fa-check"></i><b>9.1.5</b> remove</a></li>
+<li class="chapter" data-level="9.1.6" data-path="xử-lý-một-số-kiểu-dữ-liệu-trong-pandas.html"><a href="xử-lý-một-số-kiểu-dữ-liệu-trong-pandas.html#concatenate"><i class="fa fa-check"></i><b>9.1.6</b> concatenate</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="xử-lý-một-số-kiểu-dữ-liệu-trong-pandas.html"><a href="xử-lý-một-số-kiểu-dữ-liệu-trong-pandas.html#xử-lý-dữ-liệu-dạng-timestamp"><i class="fa fa-check"></i><b>9.2</b> Xử lý dữ liệu dạng timestamp</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html"><i class="fa fa-check"></i><b>10</b> Một số kiến thức nâng cao</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#multiindex"><i class="fa fa-check"></i><b>10.1</b> MultiIndex</a></li>
-<li class="chapter" data-level="10.2" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#pivot-và-melt"><i class="fa fa-check"></i><b>10.2</b> Pivot và Melt</a></li>
-<li class="chapter" data-level="10.3" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#resample"><i class="fa fa-check"></i><b>10.3</b> Resample</a></li>
-<li class="chapter" data-level="10.4" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#window"><i class="fa fa-check"></i><b>10.4</b> Window</a></li>
+<li class="chapter" data-level="10.2" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#sample-và-resample"><i class="fa fa-check"></i><b>10.2</b> Sample và Resample</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#sample"><i class="fa fa-check"></i><b>10.2.1</b> Sample</a></li>
+<li class="chapter" data-level="10.2.2" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#resample"><i class="fa fa-check"></i><b>10.2.2</b> Resample</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#window"><i class="fa fa-check"></i><b>10.3</b> Window</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#shift"><i class="fa fa-check"></i><b>10.3.1</b> Shift</a></li>
+<li class="chapter" data-level="10.3.2" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#rolling"><i class="fa fa-check"></i><b>10.3.2</b> Rolling</a></li>
+<li class="chapter" data-level="10.3.3" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#expand"><i class="fa fa-check"></i><b>10.3.3</b> Expand</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#reshape"><i class="fa fa-check"></i><b>10.4</b> Reshape</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#transpose"><i class="fa fa-check"></i><b>10.4.1</b> transpose</a></li>
+<li class="chapter" data-level="10.4.2" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#pivot"><i class="fa fa-check"></i><b>10.4.2</b> pivot</a></li>
+<li class="chapter" data-level="10.4.3" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#pivot_table"><i class="fa fa-check"></i><b>10.4.3</b> pivot_table</a></li>
+<li class="chapter" data-level="10.4.4" data-path="một-số-kiến-thức-nâng-cao.html"><a href="một-số-kiến-thức-nâng-cao.html#melt"><i class="fa fa-check"></i><b>10.4.4</b> melt</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="anomaly-detection-project.html"><a href="anomaly-detection-project.html"><i class="fa fa-check"></i><b>11</b> Anomaly Detection Project</a></li>
 <li class="chapter" data-level="12" data-path="visualize-với-matplotlib.html"><a href="visualize-với-matplotlib.html"><i class="fa fa-check"></i><b>12</b> Visualize với Matplotlib</a></li>
-<li class="chapter" data-level="13" data-path="cấu-hình-pandas-1.html"><a href="cấu-hình-pandas-1.html"><i class="fa fa-check"></i><b>13</b> Cấu hình pandas</a></li>
+<li class="chapter" data-level="13" data-path="cấu-hình-pandas.html"><a href="cấu-hình-pandas.html"><i class="fa fa-check"></i><b>13</b> Cấu hình pandas</a></li>
 <li class="divider"></li>
 <li><a href="" target="blank">Lê Huỳnh Đức</a></li>  
 
@@ -282,6 +308,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="Chuong-3" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Chương 4</span> Một số hàm cơ bản<a href="Chuong-3.html#Chuong-3" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div class="sourceCode" id="cb95"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb95-1"><a href="Chuong-3.html#cb95-1" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/lhduc94/kungfupandas/master/data/sales_subset.csv&#39;</span>,index_col<span class="op">=</span>[<span class="st">&#39;Unnamed: 0&#39;</span>])</span></code></pre></div>
+
 <div id="head-và-.tail" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> <code>.head()</code> và <code>.tail()</code><a href="Chuong-3.html#head-và-.tail" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Phương thức <code>.head(n=5)</code> hiển thị <code>n</code> dòng đầu tiên của <code>DataFrame</code>, ngược lại phương thức <code>.tail(n=5)</code> hiển thị <code>n</code> dòng cuối cùng của <code>DataFrame</code></p>
@@ -314,6 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 10772      25.644444              0.860145         6.623  
 10773      22.250000              0.955511         6.228 
 </code></pre>
+
 </div>
 <div id="shape-và-.size" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> <code>.shape</code> và <code>.size</code><a href="Chuong-3.html#shape-và-.size" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -324,6 +352,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Phương thức <code>.size</code> cho biết số lượng phần từ của bảng</p>
 <div class="sourceCode" id="cb102"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb102-1"><a href="Chuong-3.html#cb102-1" tabindex="-1"></a>df.size</span></code></pre></div>
 <pre class="python_output"><code>96966</code></pre>
+
 </div>
 <div id="info" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> <code>.info()</code><a href="Chuong-3.html#info" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -358,6 +387,7 @@ memory usage: 768.1+ KB</code></pre>
 Phương thức <code>.info()</code> có các tham số để tùy chỉnh các thông tin có thể xem. Bạn có thể giới hạn các thông tin theo các tham số dưới đây
 <code>info(verbose=None, buf=None, max_cols=None, memory_usage=None, show_counts=None, null_counts=None)</code>
 </div>
+
 </div>
 <div id="describe" class="section level2 hasAnchor" number="4.4">
 <h2><span class="header-section-number">4.4</span> <code>.describe()</code><a href="Chuong-3.html#describe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -413,6 +443,7 @@ max                1.107674      9.765000   </code></pre>
 <strong><em>Lưu ý:</em></strong>
 <code>pandas</code> mặc định tính thêm percentile tại <code>0.5</code> dù không truyền vào
 </div>
+
 </div>
 <div id="index" class="section level2 hasAnchor" number="4.5">
 <h2><span class="header-section-number">4.5</span> <code>.index</code><a href="Chuong-3.html#index" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -425,6 +456,7 @@ max                1.107674      9.765000   </code></pre>
             10764, 10765, 10766, 10767, 10768, 10769, 10770, 10771, 10772,
             10773],
            dtype=&#39;int64&#39;, length=10774)</code></pre>
+
 </div>
 <div id="memory_usage" class="section level2 hasAnchor" number="4.6">
 <h2><span class="header-section-number">4.6</span> <code>.memory_usage()</code><a href="Chuong-3.html#memory_usage" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -453,9 +485,10 @@ temperature_c            86192
 fuel_price_usd_per_l     86192
 unemployment             86192
 dtype: int64</code></pre>
+
 </div>
-<div id="lấy-series-trong-pandas" class="section level2 hasAnchor" number="4.7">
-<h2><span class="header-section-number">4.7</span> Lấy Series trong pandas<a href="Chuong-3.html#lấy-series-trong-pandas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="truy-cập-series-trong-pandas" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Truy cập Series trong pandas<a href="Chuong-3.html#truy-cập-series-trong-pandas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Sử dụng <code>[&lt;tên cột&gt;]</code> để lấy 1 Series của bảng. Ví dụ để lấy Series của cột <code>department</code> ta làm như sau</p>
 <div class="sourceCode" id="cb116"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb116-1"><a href="Chuong-3.html#cb116-1" tabindex="-1"></a>df[<span class="st">&#39;department&#39;</span>]</span></code></pre></div>
 <pre class="python_output"><code>0         1
@@ -471,6 +504,7 @@ dtype: int64</code></pre>
 10773    99
 Name: department, Length: 10774, dtype: int64</code></pre>
 <p>những Series này cũng có thế áp dụng các phương thức tương tự của <code>DataFrame</code> như <code>.head()</code>, <code>.tail()</code>….</p>
+
 </div>
 <div id="astype" class="section level2 hasAnchor" number="4.8">
 <h2><span class="header-section-number">4.8</span> <code>.astype()</code><a href="Chuong-3.html#astype" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -490,6 +524,7 @@ Name: department, Length: 10774, dtype: int64</code></pre>
 <strong><em>Lưu ý:</em></strong>
 <code>df['department'].memory_usage()</code> trả về dung lượng lưu trữ của cột <code>department</code> và dung lượng lưu trữ của <code>index</code>
 </div>
+
 </div>
 <div id="drop_duplicates" class="section level2 hasAnchor" number="4.9">
 <h2><span class="header-section-number">4.9</span> <code>.drop_duplicates()</code><a href="Chuong-3.html#drop_duplicates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -537,6 +572,7 @@ Lệnh thực hiện</p>
 1  add to cart  orange      3
 2  add to cart   apple      4
 </code></pre>
+
 </div>
 <div id="value_counts" class="section level2 hasAnchor" number="4.10">
 <h2><span class="header-section-number">4.10</span> <code>.value_counts()</code><a href="Chuong-3.html#value_counts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -570,6 +606,7 @@ dtype: float64</code></pre>
 (2.0, 3.0]      2
 (3.0, 4.0]      1
 dtype: int64</code></pre>
+
 </div>
 <div id="unique-và-.nunique" class="section level2 hasAnchor" number="4.11">
 <h2><span class="header-section-number">4.11</span> <code>.unique()</code> và <code>.nunique()</code><a href="Chuong-3.html#unique-và-.nunique" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -587,6 +624,7 @@ Name: col_0, dtype: float64</code></pre>
 <pre class="python_output"><code>array([ 2.,  3.,  1., nan])</code></pre>
 <div class="sourceCode" id="cb144"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb144-1"><a href="Chuong-3.html#cb144-1" tabindex="-1"></a>s.nunique(dropna<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
 <pre class="python_output"><code>4</code></pre>
+
 </div>
 <div id="drop" class="section level2 hasAnchor" number="4.12">
 <h2><span class="header-section-number">4.12</span> <code>.drop()</code><a href="Chuong-3.html#drop" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -633,6 +671,7 @@ A    1   3
 <strong><em>Lưu ý:</em></strong>
 Thực tế hay dùng các params <code>columns</code> và <code>index</code> để chỉ định các dòng hay cột cần được loại bỏ hơn là dùng <code>labels</code> và <code>axis</code>
 </div>
+
 </div>
 <div id="rename" class="section level2 hasAnchor" number="4.13">
 <h2><span class="header-section-number">4.13</span> <code>.rename()</code><a href="Chuong-3.html#rename" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -677,6 +716,7 @@ OA   0   1   2   3
 Tương tự như <code>.drop()</code> thì <code>columns</code> và <code>index</code> thường được sử dụng hơn là <code>mapper</code> và <code>axis</code>.</p>
 Vẫn chưa rõ <code>copy</code> dùng để làm gì.
 </div>
+
 </div>
 <div id="set_index" class="section level2 hasAnchor" number="4.14">
 <h2><span class="header-section-number">4.14</span> <code>.set_index()</code><a href="Chuong-3.html#set_index" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -757,12 +797,10 @@ KeyError: &#39;None of [1, 2, 3, 4] are in the columns&#39;</code></pre>
 2   4   5   6   7
 3   8   9  10  11
 4  12  13  14  15</code></pre>
+
 </div>
-<div id="sort_index" class="section level2 hasAnchor" number="4.15">
-<h2><span class="header-section-number">4.15</span> <code>.sort_index</code><a href="Chuong-3.html#sort_index" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="sort_values" class="section level2 hasAnchor" number="4.16">
-<h2><span class="header-section-number">4.16</span> <code>.sort_values</code><a href="Chuong-3.html#sort_values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="sort_values" class="section level2 hasAnchor" number="4.15">
+<h2><span class="header-section-number">4.15</span> <code>.sort_values</code><a href="Chuong-3.html#sort_values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Phương thức <code>.sort_values</code> dùng để sắp xếp dữ liệu trong DataFrame hoặc Series</p>
 <div class="sourceCode" id="cb175"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb175-1"><a href="Chuong-3.html#cb175-1" tabindex="-1"></a>DataFrame.sort_values(by, axis<span class="op">=</span><span class="dv">0</span>, ascending<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">False</span>, kind<span class="op">=</span><span class="st">&#39;quicksort&#39;</span>, na_position<span class="op">=</span><span class="st">&#39;last&#39;</span>, ignore_index<span class="op">=</span><span class="va">False</span>, key<span class="op">=</span><span class="va">None</span>)</span></code></pre></div>
 <p>Trong đó:</p>
@@ -837,6 +875,10 @@ KeyError: &#39;None of [1, 2, 3, 4] are in the columns&#39;</code></pre>
 5    C     4     3    F</code></pre>
 
 </div>
+<div id="sort_index" class="section level2 hasAnchor" number="4.16">
+<h2><span class="header-section-number">4.16</span> <code>.sort_index</code><a href="Chuong-3.html#sort_index" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
 </div>
             </section>
 
@@ -844,7 +886,7 @@ KeyError: &#39;None of [1, 2, 3, 4] are in the columns&#39;</code></pre>
         </div>
       </div>
 <a href="đọc-và-lưu-file-trong-pandas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="selecting-và-filtering.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chọn-và-lọc-dữ-liệu-trong-datafame.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
